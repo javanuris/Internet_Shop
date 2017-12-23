@@ -194,184 +194,185 @@ id_good</columns>
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="61" parent="14" name="id_review">
-        <mandatory>1</mandatory>
-        <data-type>int(11)|0</data-type>
-      </column>
-      <index id="62" parent="14" name="good_brand_f_idx">
+      <index id="61" parent="14" name="good_brand_f_idx">
         <columns>id_brand</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="63" parent="14" name="good_category_idx">
+      <index id="62" parent="14" name="good_category_idx">
         <columns>id_category</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="64" parent="14" name="good_good_type_f_idx">
+      <index id="63" parent="14" name="good_good_type_f_idx">
         <columns>id_good_type</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="65" parent="14" name="good_review_f_idx">
-        <columns>id_review</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="66" parent="14" name="PRIMARY">
+      <key id="64" parent="14" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="67" parent="14" name="good_good_type_f">
+      <foreign-key id="65" parent="14" name="good_good_type_f">
         <columns>id_good_type</columns>
         <ref-key>~.good_types.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="68" parent="14" name="good_category">
+      <foreign-key id="66" parent="14" name="good_category">
         <columns>id_category</columns>
         <ref-key>~.categories.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="69" parent="14" name="good_brand_f">
+      <foreign-key id="67" parent="14" name="good_brand_f">
         <columns>id_brand</columns>
         <ref-key>~.brands.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="70" parent="14" name="good_review_f">
-        <columns>id_review</columns>
-        <ref-key>~.reviews.PRIMARY</ref-key>
-        <cascade-update-rule>no_action</cascade-update-rule>
-        <cascade-delete-rule>no_action</cascade-delete-rule>
-      </foreign-key>
-      <column id="71" parent="15" name="id">
+      <column id="68" parent="15" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="72" parent="15" name="name">
+      <column id="69" parent="15" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <key id="73" parent="15" name="PRIMARY">
+      <key id="70" parent="15" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="74" parent="16" name="id">
+      <column id="71" parent="16" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="75" parent="16" name="id_good">
+      <column id="72" parent="16" name="id_good">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="76" parent="16" name="id_user">
+      <column id="73" parent="16" name="id_user">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="77" parent="16" name="id_order_status">
+      <column id="74" parent="16" name="id_order_status">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="78" parent="16" name="count">
+      <column id="75" parent="16" name="count">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="79" parent="16" name="start_date">
+      <column id="76" parent="16" name="start_date">
         <data-type>timestamp(6)|0</data-type>
       </column>
-      <index id="80" parent="16" name="order_good_f_idx">
+      <index id="77" parent="16" name="order_good_f_idx">
         <columns>id_good</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="81" parent="16" name="order_order_status_f_idx">
+      <index id="78" parent="16" name="order_order_status_f_idx">
         <columns>id_order_status</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="82" parent="16" name="order_user_f_idx">
+      <index id="79" parent="16" name="order_user_f_idx">
         <columns>id_user</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="83" parent="16" name="PRIMARY">
+      <key id="80" parent="16" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="84" parent="16" name="order_good_f">
+      <foreign-key id="81" parent="16" name="order_good_f">
         <columns>id_good</columns>
         <ref-key>~.goods.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="85" parent="16" name="order_user_f">
+      <foreign-key id="82" parent="16" name="order_user_f">
         <columns>id_user</columns>
         <ref-key>~.users.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="86" parent="16" name="order_order_status_f">
+      <foreign-key id="83" parent="16" name="order_order_status_f">
         <columns>id_order_status</columns>
         <ref-key>~.order_statuses.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <column id="87" parent="17" name="id">
+      <column id="84" parent="17" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="88" parent="17" name="id_good">
+      <column id="85" parent="17" name="id_good">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="89" parent="17" name="id_user">
+      <column id="86" parent="17" name="id_user">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="90" parent="17" name="end_date">
+      <column id="87" parent="17" name="end_date">
         <data-type>timestamp(6)|0</data-type>
       </column>
-      <column id="91" parent="17" name="count">
+      <column id="88" parent="17" name="count">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="92" parent="17" name="order_arch_good_f_idx">
+      <index id="89" parent="17" name="order_arch_good_f_idx">
         <columns>id_good</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="93" parent="17" name="order_arch_user_f_idx">
+      <index id="90" parent="17" name="order_arch_user_f_idx">
         <columns>id_user</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="94" parent="17" name="PRIMARY">
+      <key id="91" parent="17" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="95" parent="17" name="order_arch_good_f">
+      <foreign-key id="92" parent="17" name="order_arch_good_f">
         <columns>id_good</columns>
         <ref-key>~.goods.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="96" parent="17" name="order_arch_user_f">
+      <foreign-key id="93" parent="17" name="order_arch_user_f">
         <columns>id_user</columns>
         <ref-key>~.users.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <column id="97" parent="18" name="id">
+      <column id="94" parent="18" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="98" parent="18" name="name">
+      <column id="95" parent="18" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="99" parent="18" name="rating">
+      <column id="96" parent="18" name="rating">
+        <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="100" parent="18" name="id_user">
+      <column id="97" parent="18" name="id_user">
+        <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
+      <column id="98" parent="18" name="id_good">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="99" parent="18" name="start_date">
+        <mandatory>1</mandatory>
+        <data-type>timestamp(6)|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP(6)</default-expression>
+      </column>
+      <index id="100" parent="18" name="rating_good_f_idx">
+        <columns>id_good</columns>
+        <desc-columns></desc-columns>
+      </index>
       <index id="101" parent="18" name="rating_user_f_idx">
         <columns>id_user</columns>
         <desc-columns></desc-columns>
@@ -386,133 +387,139 @@ id_good</columns>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <column id="104" parent="19" name="id">
+      <foreign-key id="104" parent="18" name="rating_good_f">
+        <columns>id_good</columns>
+        <ref-key>~.goods.PRIMARY</ref-key>
+        <cascade-update-rule>no_action</cascade-update-rule>
+        <cascade-delete-rule>no_action</cascade-delete-rule>
+      </foreign-key>
+      <column id="105" parent="19" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="105" parent="19" name="name">
+      <column id="106" parent="19" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <key id="106" parent="19" name="PRIMARY">
+      <key id="107" parent="19" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="107" parent="20" name="id">
+      <column id="108" parent="20" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="108" parent="20" name="name">
+      <column id="109" parent="20" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <key id="109" parent="20" name="PRIMARY">
+      <key id="110" parent="20" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <column id="110" parent="21" name="id">
+      <column id="111" parent="21" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="111" parent="21" name="id_order">
+      <column id="112" parent="21" name="id_order">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="112" parent="21" name="cash">
+      <column id="113" parent="21" name="cash">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="113" parent="21" name="come_date">
+      <column id="114" parent="21" name="come_date">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="114" parent="21" name="id_status">
+      <column id="115" parent="21" name="id_status">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="115" parent="21" name="terminal_order_id_idx">
+      <index id="116" parent="21" name="terminal_order_id_idx">
         <columns>id_order</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="116" parent="21" name="terminal_termonal_status_f_idx">
+      <index id="117" parent="21" name="terminal_termonal_status_f_idx">
         <columns>id_status</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="117" parent="21" name="PRIMARY">
+      <key id="118" parent="21" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="118" parent="21" name="terminal_order_id">
+      <foreign-key id="119" parent="21" name="terminal_order_id">
         <columns>id_order</columns>
         <ref-key>~.orders.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="119" parent="21" name="terminal_termonal_status_f">
+      <foreign-key id="120" parent="21" name="terminal_termonal_status_f">
         <columns>id_status</columns>
         <ref-key>~.terminal_status.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <column id="120" parent="22" name="id">
+      <column id="121" parent="22" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="121" parent="22" name="first_name">
+      <column id="122" parent="22" name="first_name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="122" parent="22" name="last_name">
+      <column id="123" parent="22" name="last_name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="123" parent="22" name="email">
+      <column id="124" parent="22" name="email">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="124" parent="22" name="password">
+      <column id="125" parent="22" name="password">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="125" parent="22" name="phone">
+      <column id="126" parent="22" name="phone">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="126" parent="22" name="cash">
+      <column id="127" parent="22" name="cash">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="127" parent="22" name="id_city">
+      <column id="128" parent="22" name="id_city">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="128" parent="22" name="id_role">
+      <column id="129" parent="22" name="id_role">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="129" parent="22" name="user_city_k_idx">
+      <index id="130" parent="22" name="user_city_k_idx">
         <columns>id_city</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="130" parent="22" name="user_role_k_idx">
+      <index id="131" parent="22" name="user_role_k_idx">
         <columns>id_role</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="131" parent="22" name="PRIMARY">
+      <key id="132" parent="22" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="132" parent="22" name="user_city_k">
+      <foreign-key id="133" parent="22" name="user_city_k">
         <columns>id_city</columns>
         <ref-key>~.cities.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>
         <cascade-delete-rule>no_action</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="133" parent="22" name="user_role_k">
+      <foreign-key id="134" parent="22" name="user_role_k">
         <columns>id_role</columns>
         <ref-key>~.roles.PRIMARY</ref-key>
         <cascade-update-rule>no_action</cascade-update-rule>

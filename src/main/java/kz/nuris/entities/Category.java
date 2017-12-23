@@ -1,13 +1,15 @@
 package kz.nuris.entities;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
- * Created by User on 22.12.2017.
+ * Created by User on 23.12.2017.
  */
 @Entity
-@Table(name = "cities" , schema = "internet_shop")
-public class CityEntity extends BaseEntity{
+@Table(name = "categories", schema = "internet_shop")
+public class Category extends BaseEntity {
 
     private String name;
 

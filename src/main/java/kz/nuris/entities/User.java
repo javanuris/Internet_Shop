@@ -1,9 +1,6 @@
 package kz.nuris.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by User on 22.12.2017.
@@ -11,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users", schema = "internet_shop")
-public class UserEntity extends BaseEntity {
+public class User extends BaseEntity {
 
     private String firstName;
     private String lastName;
@@ -19,8 +16,8 @@ public class UserEntity extends BaseEntity {
     private String password;
     private String phone;
     private Integer cash;
-    private CityEntity cityEntity;
-    private RoleEntity roleEntity;
+    private City city;
+    private Role role;
 
     @Column(name = "first_name")
     public String getFirstName() {
@@ -77,20 +74,22 @@ public class UserEntity extends BaseEntity {
     }
 
     @ManyToOne
-    public CityEntity getCityEntity() {
-        return cityEntity;
+    @JoinColumn(name = "id_city")
+    public City getCity() {
+        return city;
     }
 
-    public void setCityEntity(CityEntity cityEntity) {
-        this.cityEntity = cityEntity;
+    public void setCity(City city) {
+        this.city = city;
     }
 
     @ManyToOne
-    public RoleEntity getRoleEntity() {
-        return roleEntity;
+    @JoinColumn(name = "id_role")
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoleEntity(RoleEntity roleEntity) {
-        this.roleEntity = roleEntity;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

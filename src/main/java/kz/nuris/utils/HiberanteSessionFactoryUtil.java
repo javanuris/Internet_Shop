@@ -25,13 +25,8 @@ public class HiberanteSessionFactoryUtil {
     }
 
     private static void createSessionFactory() {
-        try {
             Configuration configuration = new Configuration();
             configuration.configure("hibernate.cfg.xml").buildSessionFactory();
             sessionFactory = configuration.buildSessionFactory();
-        }catch (Exception e){
-            System.out.println("Error");
-        }
-
     }
 }

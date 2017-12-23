@@ -15,8 +15,15 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.id.new_generator_mappings">false</property>
-        <mapping class="kz.nuris.entities.CityEntity"/>
-        <mapping class="kz.nuris.entities.RoleEntity"/>
+        <mapping class="kz.nuris.entities.City"/>
+        <mapping class="kz.nuris.entities.Role"/>
+        <mapping class="kz.nuris.entities.User"/>
+        <mapping class="kz.nuris.entities.Brand"/>
+        <mapping class="kz.nuris.entities.Review"/>
+        <mapping class="kz.nuris.entities.Category"/>
+        <mapping class="kz.nuris.entities.GoodType"/>
+        <mapping class="kz.nuris.entities.Good"/>
+        <mapping class="kz.nuris.entities.Basket"/>
 
     </session-factory>
 </hibernate-configuration>
