@@ -1,6 +1,5 @@
 package kz.nuris.entities;
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
 import java.util.Date;
 

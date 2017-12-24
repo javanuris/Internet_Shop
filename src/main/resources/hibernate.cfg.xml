@@ -24,6 +24,11 @@
         <mapping class="kz.nuris.entities.GoodType"/>
         <mapping class="kz.nuris.entities.Good"/>
         <mapping class="kz.nuris.entities.Basket"/>
-
+        <mapping class="kz.nuris.entities.GoodPicture"/>
+        <mapping class="kz.nuris.entities.OrderStatus"/>
+        <mapping class="kz.nuris.entities.Order"/>
+        <mapping class="kz.nuris.entities.OrderArch"/>
+        <mapping class="kz.nuris.entities.TerminalStatus"/>
+        <mapping class="kz.nuris.entities.Terminal"/>
     </session-factory>
 </hibernate-configuration>

@@ -23,5 +23,8 @@
         <mapping class="kz.nuris.entities.Category"/>
         <mapping class="kz.nuris.entities.GoodType"/>
         <mapping class="kz.nuris.entities.Good"/>
+        <mapping class="kz.nuris.entities.Basket"/>
+        <mapping class="kz.nuris.entities.GoodPicture"/>
+
     </session-factory>
 </hibernate-configuration>

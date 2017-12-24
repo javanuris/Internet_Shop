@@ -4,6 +4,8 @@ import kz.nuris.entities.*;
 import kz.nuris.utils.HiberanteSessionFactoryUtil;
 import org.hibernate.Session;
 
+import java.util.Date;
+
 /**
  * Created by User on 22.12.2017.
  */
@@ -46,7 +48,7 @@ public class Main {
         review.setUser(user);
 */
 
-        Brand brand = new Brand();
+     /*   Brand brand = new Brand();
         brand.setId(1);
 
         Category category = new Category();
@@ -64,8 +66,26 @@ public class Main {
         good.setBrand(brand);
         good.setGoodType(goodType);
 
+*/
+        Good good = new Good();
+        good.setId(1);
 
-        session.save(good);
+      /*  User user = new User();
+        user.setId(1);
+
+        Basket basket = new Basket();
+        basket.setCount(1);
+        basket.setStartDate(new Date());
+        basket.setGood(good);
+        basket.setUser(user);
+       ;*/
+
+      GoodPicture goodPicture = new GoodPicture();
+        goodPicture.setName("Boots");
+        goodPicture.setUrl("http://picture.com");
+        goodPicture.setGood(good);
+
+        session.save(goodPicture);
         session.getTransaction().commit();
     }
 }
