@@ -22,7 +22,7 @@ public class GoodType extends BaseEntity {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "goodType" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "goodType" , fetch = FetchType.LAZY)
     public Set<Good> getGoods() {
         return goods;
     }

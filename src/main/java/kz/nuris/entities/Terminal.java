@@ -14,8 +14,10 @@ public class Terminal extends BaseEntity{
     private Date comeDate;
     private TerminalStatus terminalStatus;
 
+
     @ManyToOne
-    @JoinColumn(name = "id_order")
+    @JoinColumn(name = "id_order",referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "terminal_order_f"))
+
     public Order getOrder() {
         return order;
     }
@@ -42,7 +44,7 @@ public class Terminal extends BaseEntity{
         this.comeDate = comeDate;
     }
     @ManyToOne
-    @JoinColumn(name = "id_status")
+    @JoinColumn(name = "id_status",referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "terminal_terminal_status_f"))
     public TerminalStatus getTerminalStatus() {
         return terminalStatus;
     }

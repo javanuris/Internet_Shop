@@ -1,6 +1,7 @@
 package kz.nuris.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by User on 22.12.2017.
@@ -18,6 +19,9 @@ public class User extends BaseEntity {
     private Integer cash;
     private City city;
     private Role role;
+    private Set<Basket> baskets;
+    private Set<Order> orders;
+    private Set<OrderArch> orderArches;
 
     @Column(name = "first_name" ,nullable = false, length = 45)
     public String getFirstName() {
@@ -91,5 +95,31 @@ public class User extends BaseEntity {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY )
+    public Set<Basket> getBaskets() {
+        return baskets;
+    }
+
+    public void setBaskets(Set<Basket> baskets) {
+        this.baskets = baskets;
+    }
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY )
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY )
+    public Set<OrderArch> getOrderArches() {
+        return orderArches;
+    }
+
+    public void setOrderArches(Set<OrderArch> orderArches) {
+        this.orderArches = orderArches;
     }
 }

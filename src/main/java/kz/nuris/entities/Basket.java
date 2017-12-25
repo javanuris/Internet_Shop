@@ -14,6 +14,7 @@ public class Basket extends BaseEntity {
     private Good good;
     private User user;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "start_date")
     public Date getStartDate() {
         return startDate;
@@ -23,7 +24,7 @@ public class Basket extends BaseEntity {
         this.startDate = startDate;
     }
 
-    @Column(name = "count")
+    @Column(name = "count", nullable = false, columnDefinition = "int default 1", length = 1)
     public Integer getCount() {
         return count;
     }
@@ -32,8 +33,9 @@ public class Basket extends BaseEntity {
         this.count = count;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_good")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_good", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="basket_good_f"))
+
     public Good getGood() {
         return good;
     }
@@ -42,8 +44,8 @@ public class Basket extends BaseEntity {
         this.good = good;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_user")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="basket_user_f"))
     public User getUser() {
         return user;
     }

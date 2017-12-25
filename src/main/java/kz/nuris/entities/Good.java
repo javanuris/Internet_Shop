@@ -18,6 +18,9 @@ public class Good extends BaseEntity {
     private Category category;
     private GoodType goodType;
     private Set<GoodPicture> goodPictures;
+    private Set<Basket> baskets;
+    private Set<Order> orders;
+    private Set<OrderArch> orderArches;
 
     @Column(name = "name" ,nullable = false, length = 20)
     public String getName() {
@@ -92,5 +95,32 @@ public class Good extends BaseEntity {
 
     public void setGoodPictures(Set<GoodPicture> goodPictures) {
         this.goodPictures = goodPictures;
+    }
+
+    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    public Set<Basket> getBaskets() {
+        return baskets;
+    }
+
+    public void setBaskets(Set<Basket> baskets) {
+        this.baskets = baskets;
+    }
+
+    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    public Set<OrderArch> getOrderArches() {
+        return orderArches;
+    }
+
+    public void setOrderArches(Set<OrderArch> orderArches) {
+        this.orderArches = orderArches;
     }
 }
