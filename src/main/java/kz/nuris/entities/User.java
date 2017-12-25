@@ -19,7 +19,7 @@ public class User extends BaseEntity {
     private City city;
     private Role role;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name" ,nullable = false, length = 45)
     public String getFirstName() {
         return firstName;
     }
@@ -28,7 +28,7 @@ public class User extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Column(name = "last_name")
+    @Column(name = "last_name" , nullable =  false , length = 45 )
     public String getLastName() {
         return lastName;
     }
@@ -37,7 +37,7 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Column(name = "email")
+    @Column(name = "email" , nullable = false , length = 60 , unique = true)
     public String getEmail() {
         return email;
     }
@@ -46,7 +46,7 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    @Column(name = "password")
+    @Column(name = "password" , nullable = false , length = 60)
     public String getPassword() {
         return password;
     }
@@ -55,7 +55,7 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false , length = 20)
     public String getPhone() {
         return phone;
     }
@@ -64,7 +64,7 @@ public class User extends BaseEntity {
         this.phone = phone;
     }
 
-    @Column(name = "cash")
+    @Column(name = "cash" ,nullable = false, columnDefinition = "int default 0", length = 10)
     public Integer getCash() {
         return cash;
     }
@@ -73,8 +73,8 @@ public class User extends BaseEntity {
         this.cash = cash;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_city")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_city" , referencedColumnName = "id" ,nullable = false , foreignKey = @ForeignKey(name = "city_user_f"))
     public City getCity() {
         return city;
     }
@@ -83,8 +83,8 @@ public class User extends BaseEntity {
         this.city = city;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_role")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_role" , referencedColumnName = "id",nullable = false , foreignKey = @ForeignKey(name = "role_user_f"))
     public Role getRole() {
         return role;
     }

@@ -12,7 +12,7 @@ public class GoodPicture extends BaseEntity {
     private String url;
     private Good good;
 
-    @Column(name = "name")
+    @Column(name = "name" ,nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -21,7 +21,7 @@ public class GoodPicture extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name = "picture_url")
+    @Column(name = "picture_url" , nullable = false , length = 150)
     public String getUrl() {
         return url;
     }
@@ -31,7 +31,7 @@ public class GoodPicture extends BaseEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_good")
+    @JoinColumn(name = "id_good", nullable = false, referencedColumnName = "id" , foreignKey = @ForeignKey(name = "good_picture_good_f"))
     public Good getGood() {
         return good;
     }

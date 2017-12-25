@@ -33,8 +33,7 @@ public class Terminal extends BaseEntity{
         this.cash = cash;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "come_date")
+   @Column(name = "come_date")
     public Date getComeDate() {
         return comeDate;
     }

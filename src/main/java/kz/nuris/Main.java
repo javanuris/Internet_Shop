@@ -14,6 +14,7 @@ public class Main {
         Session session = HiberanteSessionFactoryUtil.getSession();
         session.beginTransaction();
 
+
       /*  Role roleEntity = new Role();
         roleEntity.setId(1);
 
@@ -80,12 +81,14 @@ public class Main {
         basket.setUser(user);
        ;*/
 
-      GoodPicture goodPicture = new GoodPicture();
+        GoodPicture goodPicture = new GoodPicture();
         goodPicture.setName("Boots");
         goodPicture.setUrl("http://picture.com");
         goodPicture.setGood(good);
 
         session.save(goodPicture);
         session.getTransaction().commit();
+        session.close();
+        HiberanteSessionFactoryUtil.getSessionFactory().close();
     }
 }

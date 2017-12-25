@@ -1,4 +1,5 @@
 package kz.nuris.entities;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "reviews", schema = "internet_shop")
-public class Review extends BaseEntity{
+public class Review extends BaseEntity {
 
     private String name;
     private Integer rating;
@@ -15,7 +16,7 @@ public class Review extends BaseEntity{
     private Good good;
     private Date startDate;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -24,7 +25,7 @@ public class Review extends BaseEntity{
         this.name = name;
     }
 
-    @Column(name = "rating")
+    @Column(name = "rating", nullable = false, length = 1, columnDefinition = "int default 5")
     public Integer getRating() {
         return rating;
     }
@@ -32,8 +33,9 @@ public class Review extends BaseEntity{
     public void setRating(Integer rating) {
         this.rating = rating;
     }
-    @ManyToOne
-    @JoinColumn(name = "id_user")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "review_user_f"))
     public User getUser() {
         return user;
     }
@@ -43,7 +45,7 @@ public class Review extends BaseEntity{
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_good")
+    @JoinColumn(name = "id_good",referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "review_good_f"))
     public Good getGood() {
         return good;
     }
@@ -52,6 +54,7 @@ public class Review extends BaseEntity{
         this.good = good;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "start_date")
     public Date getStartDate() {
         return startDate;

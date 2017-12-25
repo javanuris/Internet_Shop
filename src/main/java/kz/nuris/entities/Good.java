@@ -1,6 +1,7 @@
 package kz.nuris.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by User on 23.12.2017.
@@ -16,8 +17,9 @@ public class Good extends BaseEntity {
     private Brand brand;
     private Category category;
     private GoodType goodType;
+    private Set<GoodPicture> goodPictures;
 
-    @Column(name = "name")
+    @Column(name = "name" ,nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -26,7 +28,7 @@ public class Good extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name = "price")
+    @Column(name = "price" , nullable = false , columnDefinition = "int default 0", length = 7)
     public Integer getPrice() {
         return price;
     }
@@ -35,7 +37,7 @@ public class Good extends BaseEntity {
         this.price = price;
     }
 
-    @Column(name = "count")
+    @Column(name = "count", nullable = false , columnDefinition = "int default 0", length = 7)
     public Integer getCount() {
         return count;
     }
@@ -44,7 +46,7 @@ public class Good extends BaseEntity {
         this.count = count;
     }
 
-    @Column(name = "description")
+    @Column(name = "description" , length = 500)
     public String getDescription() {
         return description;
     }
@@ -53,8 +55,8 @@ public class Good extends BaseEntity {
         this.description = description;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_brand")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_brand", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="good_brand_f"))
     public Brand getBrand() {
         return brand;
     }
@@ -63,8 +65,8 @@ public class Good extends BaseEntity {
         this.brand = brand;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_category")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_category", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="good_category_f"))
     public Category getCategory() {
         return category;
     }
@@ -73,8 +75,8 @@ public class Good extends BaseEntity {
         this.category = category;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "id_good_type")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_good_type", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="good_good_type_f"))
     public GoodType getGoodType() {
         return goodType;
     }
@@ -83,5 +85,12 @@ public class Good extends BaseEntity {
         this.goodType = goodType;
     }
 
+    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    public Set<GoodPicture> getGoodPictures() {
+        return goodPictures;
+    }
 
+    public void setGoodPictures(Set<GoodPicture> goodPictures) {
+        this.goodPictures = goodPictures;
+    }
 }
