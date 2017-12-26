@@ -8,13 +8,16 @@ import java.util.Set;
  * Created by User on 24.12.2017.
  */
 @Entity
-@Table(name = "order_statuses", schema = "internet_shop")
-public class OrderStatus extends BaseEntity{
+@Table(name = "order_statuses")
+public class OrderStatus extends BaseEntity {
 
     private String name;
     private Set<Order> orders;
 
-    @Column(name = "name" ,nullable = false, length = 20)
+    public OrderStatus() {
+    }
+
+    @Column(name = "name", nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -23,7 +26,7 @@ public class OrderStatus extends BaseEntity{
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "orderStatus" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "orderStatus", fetch = FetchType.LAZY)
     public Set<Order> getOrders() {
         return orders;
     }

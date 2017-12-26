@@ -7,12 +7,15 @@ import java.util.Set;
  * Created by User on 24.12.2017.
  */
 @Entity
-@Table(name = "terminal_status", schema = "internet_shop")
+@Table(name = "terminal_status")
 public class TerminalStatus extends BaseEntity {
     private String name;
     private Set<Terminal> terminals;
 
-    @Column(name = "name" ,nullable = false, length = 20)
+    public TerminalStatus() {
+    }
+
+    @Column(name = "name", nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -21,7 +24,7 @@ public class TerminalStatus extends BaseEntity {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "terminalStatus" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "terminalStatus", fetch = FetchType.LAZY)
     public Set<Terminal> getTerminals() {
         return terminals;
     }

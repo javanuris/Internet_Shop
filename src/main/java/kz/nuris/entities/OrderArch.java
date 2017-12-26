@@ -8,13 +8,16 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "orders_arch", schema = "internet_shop")
+@Table(name = "orders_arch")
 public class OrderArch extends BaseEntity {
 
     private Good good;
     private User user;
     private Integer count;
     private Date endDate;
+
+    public OrderArch() {
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_good", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "order_arch_good_f"))
@@ -36,7 +39,7 @@ public class OrderArch extends BaseEntity {
         this.user = user;
     }
 
-    @Column(name = "count", nullable = false , columnDefinition = "int default 1", length = 5)
+    @Column(name = "count", nullable = false, columnDefinition = "int default 1", length = 5)
     public Integer getCount() {
         return count;
     }
@@ -46,7 +49,7 @@ public class OrderArch extends BaseEntity {
     }
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "end_date",nullable = false)
+    @Column(name = "end_date", nullable = false)
     public Date getEndDate() {
         return endDate;
     }

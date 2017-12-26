@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by User on 23.12.2017.
  */
 @Entity
-@Table(name = "reviews", schema = "internet_shop")
+@Table(name = "reviews")
 public class Review extends BaseEntity {
 
     private String name;
@@ -15,6 +15,9 @@ public class Review extends BaseEntity {
     private User user;
     private Good good;
     private Date startDate;
+
+    public Review() {
+    }
 
     @Column(name = "name", nullable = false, length = 20)
     public String getName() {
@@ -45,7 +48,7 @@ public class Review extends BaseEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "id_good",referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "review_good_f"))
+    @JoinColumn(name = "id_good", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "review_good_f"))
     public Good getGood() {
         return good;
     }

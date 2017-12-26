@@ -7,16 +7,18 @@ import java.util.Date;
  * Created by User on 24.12.2017.
  */
 @Entity
-@Table(name = "terminals", schema = "internet_shop")
-public class Terminal extends BaseEntity{
+@Table(name = "terminals")
+public class Terminal extends BaseEntity {
     private Order order;
     private Integer cash;
     private Date comeDate;
     private TerminalStatus terminalStatus;
 
+    public Terminal() {
+    }
 
     @ManyToOne
-    @JoinColumn(name = "id_order",referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "terminal_order_f"))
+    @JoinColumn(name = "id_order", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "terminal_order_f"))
 
     public Order getOrder() {
         return order;
@@ -35,7 +37,7 @@ public class Terminal extends BaseEntity{
         this.cash = cash;
     }
 
-   @Column(name = "come_date")
+    @Column(name = "come_date")
     public Date getComeDate() {
         return comeDate;
     }
@@ -43,8 +45,9 @@ public class Terminal extends BaseEntity{
     public void setComeDate(Date comeDate) {
         this.comeDate = comeDate;
     }
+
     @ManyToOne
-    @JoinColumn(name = "id_status",referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "terminal_terminal_status_f"))
+    @JoinColumn(name = "id_status", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "terminal_terminal_status_f"))
     public TerminalStatus getTerminalStatus() {
         return terminalStatus;
     }

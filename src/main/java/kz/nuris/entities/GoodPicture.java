@@ -6,11 +6,14 @@ import javax.persistence.*;
  * Created by User on 23.12.2017.
  */
 @Entity
-@Table(name = "good_pictures", schema = "internet_shop")
+@Table(name = "good_pictures")
 public class GoodPicture extends BaseEntity {
     private String name;
     private String url;
     private Good good;
+
+    public GoodPicture() {
+    }
 
     @Column(name = "name" ,nullable = false, length = 20)
     public String getName() {

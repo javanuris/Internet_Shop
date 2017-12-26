@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "orders", schema = "internet_shop")
+@Table(name = "orders")
 public class Order extends BaseEntity {
 
     private Good good;
@@ -18,6 +18,9 @@ public class Order extends BaseEntity {
     private Integer count;
     private Date startDate;
     private Set<Terminal> terminals;
+
+    public Order() {
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_good", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "order_good_f"))

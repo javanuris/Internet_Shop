@@ -8,7 +8,7 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "users", schema = "internet_shop")
+@Table(name = "users")
 public class User extends BaseEntity {
 
     private String firstName;
@@ -23,7 +23,10 @@ public class User extends BaseEntity {
     private Set<Order> orders;
     private Set<OrderArch> orderArches;
 
-    @Column(name = "first_name" ,nullable = false, length = 45)
+    public User() {
+    }
+
+    @Column(name = "first_name", nullable = false, length = 45)
     public String getFirstName() {
         return firstName;
     }
@@ -32,7 +35,7 @@ public class User extends BaseEntity {
         this.firstName = firstName;
     }
 
-    @Column(name = "last_name" , nullable =  false , length = 45 )
+    @Column(name = "last_name", nullable = false, length = 45)
     public String getLastName() {
         return lastName;
     }
@@ -41,7 +44,7 @@ public class User extends BaseEntity {
         this.lastName = lastName;
     }
 
-    @Column(name = "email" , nullable = false , length = 60 , unique = true)
+    @Column(name = "email", nullable = false, length = 60, unique = true)
     public String getEmail() {
         return email;
     }
@@ -50,7 +53,7 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    @Column(name = "password" , nullable = false , length = 60)
+    @Column(name = "password", nullable = false, length = 60)
     public String getPassword() {
         return password;
     }
@@ -59,7 +62,7 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    @Column(name = "phone", nullable = false , length = 20)
+    @Column(name = "phone", nullable = false, length = 20)
     public String getPhone() {
         return phone;
     }
@@ -68,7 +71,7 @@ public class User extends BaseEntity {
         this.phone = phone;
     }
 
-    @Column(name = "cash" ,nullable = false, columnDefinition = "int default 0", length = 10)
+    @Column(name = "cash", nullable = false, columnDefinition = "int default 0", length = 10)
     public Integer getCash() {
         return cash;
     }
@@ -78,7 +81,7 @@ public class User extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_city" , referencedColumnName = "id" ,nullable = false , foreignKey = @ForeignKey(name = "city_user_f"))
+    @JoinColumn(name = "id_city", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "city_user_f"))
     public City getCity() {
         return city;
     }
@@ -88,7 +91,7 @@ public class User extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_role" , referencedColumnName = "id",nullable = false , foreignKey = @ForeignKey(name = "role_user_f"))
+    @JoinColumn(name = "id_role", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "role_user_f"))
     public Role getRole() {
         return role;
     }
@@ -97,7 +100,7 @@ public class User extends BaseEntity {
         this.role = role;
     }
 
-    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     public Set<Basket> getBaskets() {
         return baskets;
     }
@@ -105,7 +108,8 @@ public class User extends BaseEntity {
     public void setBaskets(Set<Basket> baskets) {
         this.baskets = baskets;
     }
-    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY )
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     public Set<Order> getOrders() {
         return orders;
     }
@@ -114,7 +118,7 @@ public class User extends BaseEntity {
         this.orders = orders;
     }
 
-    @OneToMany(mappedBy = "user" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     public Set<OrderArch> getOrderArches() {
         return orderArches;
     }

@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by User on 23.12.2017.
  */
 @Entity
-@Table(name = "goods", schema = "internet_shop")
+@Table(name = "goods")
 public class Good extends BaseEntity {
 
     private String name;
@@ -22,7 +22,10 @@ public class Good extends BaseEntity {
     private Set<Order> orders;
     private Set<OrderArch> orderArches;
 
-    @Column(name = "name" ,nullable = false, length = 20)
+    public Good() {
+    }
+
+    @Column(name = "name", nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -31,7 +34,7 @@ public class Good extends BaseEntity {
         this.name = name;
     }
 
-    @Column(name = "price" , nullable = false , columnDefinition = "int default 0", length = 7)
+    @Column(name = "price", nullable = false, columnDefinition = "int default 0", length = 7)
     public Integer getPrice() {
         return price;
     }
@@ -40,7 +43,7 @@ public class Good extends BaseEntity {
         this.price = price;
     }
 
-    @Column(name = "count", nullable = false , columnDefinition = "int default 0", length = 7)
+    @Column(name = "count", nullable = false, columnDefinition = "int default 0", length = 7)
     public Integer getCount() {
         return count;
     }
@@ -49,7 +52,7 @@ public class Good extends BaseEntity {
         this.count = count;
     }
 
-    @Column(name = "description" , length = 500)
+    @Column(name = "description", length = 500)
     public String getDescription() {
         return description;
     }
@@ -59,7 +62,7 @@ public class Good extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_brand", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="good_brand_f"))
+    @JoinColumn(name = "id_brand", nullable = false, referencedColumnName = "id", foreignKey = @ForeignKey(name = "good_brand_f"))
     public Brand getBrand() {
         return brand;
     }
@@ -69,7 +72,7 @@ public class Good extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_category", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="good_category_f"))
+    @JoinColumn(name = "id_category", nullable = false, referencedColumnName = "id", foreignKey = @ForeignKey(name = "good_category_f"))
     public Category getCategory() {
         return category;
     }
@@ -79,7 +82,7 @@ public class Good extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_good_type", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="good_good_type_f"))
+    @JoinColumn(name = "id_good_type", nullable = false, referencedColumnName = "id", foreignKey = @ForeignKey(name = "good_good_type_f"))
     public GoodType getGoodType() {
         return goodType;
     }
@@ -88,7 +91,7 @@ public class Good extends BaseEntity {
         this.goodType = goodType;
     }
 
-    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "good", fetch = FetchType.LAZY)
     public Set<GoodPicture> getGoodPictures() {
         return goodPictures;
     }
@@ -97,7 +100,7 @@ public class Good extends BaseEntity {
         this.goodPictures = goodPictures;
     }
 
-    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "good", fetch = FetchType.LAZY)
     public Set<Basket> getBaskets() {
         return baskets;
     }
@@ -106,7 +109,7 @@ public class Good extends BaseEntity {
         this.baskets = baskets;
     }
 
-    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "good", fetch = FetchType.LAZY)
     public Set<Order> getOrders() {
         return orders;
     }
@@ -115,7 +118,7 @@ public class Good extends BaseEntity {
         this.orders = orders;
     }
 
-    @OneToMany(mappedBy = "good" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "good", fetch = FetchType.LAZY)
     public Set<OrderArch> getOrderArches() {
         return orderArches;
     }

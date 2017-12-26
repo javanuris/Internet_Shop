@@ -7,12 +7,15 @@ import java.util.Set;
  * Created by User on 23.12.2017.
  */
 @Entity
-@Table(name = "brands", schema = "internet_shop")
+@Table(name = "brands")
 public class Brand extends BaseEntity {
     private String name;
     private Set<Good> goods;
 
-    @Column(name = "name" ,nullable = false, length = 20)
+    public Brand() {
+    }
+
+    @Column(name = "name", nullable = false, length = 20)
     public String getName() {
         return name;
     }
@@ -21,7 +24,7 @@ public class Brand extends BaseEntity {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "brand" , fetch = FetchType.LAZY )
+    @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
     public Set<Good> getGoods() {
         return goods;
     }

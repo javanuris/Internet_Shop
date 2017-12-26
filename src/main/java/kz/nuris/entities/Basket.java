@@ -7,12 +7,15 @@ import java.util.Date;
  * Created by User on 23.12.2017.
  */
 @Entity
-@Table(name = "baskets", schema = "internet_shop")
+@Table(name = "baskets")
 public class Basket extends BaseEntity {
     private Date startDate;
     private Integer count;
     private Good good;
     private User user;
+
+    public Basket() {
+    }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "start_date")
@@ -34,7 +37,7 @@ public class Basket extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_good", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="basket_good_f"))
+    @JoinColumn(name = "id_good", nullable = false, referencedColumnName = "id", foreignKey = @ForeignKey(name = "basket_good_f"))
 
     public Good getGood() {
         return good;
@@ -45,7 +48,7 @@ public class Basket extends BaseEntity {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user", nullable = false , referencedColumnName = "id", foreignKey = @ForeignKey(name="basket_user_f"))
+    @JoinColumn(name = "id_user", nullable = false, referencedColumnName = "id", foreignKey = @ForeignKey(name = "basket_user_f"))
     public User getUser() {
         return user;
     }

@@ -81,12 +81,14 @@ public class Main {
         basket.setUser(user);
        ;*/
 
-        GoodPicture goodPicture = new GoodPicture();
+     /*   GoodPicture goodPicture = new GoodPicture();
         goodPicture.setName("Boots");
         goodPicture.setUrl("http://picture.com");
         goodPicture.setGood(good);
-
-        session.save(goodPicture);
+*/
+     City city = new City();
+        city.setName("Kostanay");
+        session.save(city);
         session.getTransaction().commit();
         session.close();
         HiberanteSessionFactoryUtil.getSessionFactory().close();
