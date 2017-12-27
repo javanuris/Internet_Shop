@@ -80,7 +80,7 @@ public class User extends BaseEntity {
         this.cash = cash;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_city", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "city_user_f"))
     public City getCity() {
         return city;
@@ -90,7 +90,7 @@ public class User extends BaseEntity {
         this.city = city;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "role_user_f"))
     public Role getRole() {
         return role;
@@ -125,5 +125,19 @@ public class User extends BaseEntity {
 
     public void setOrderArches(Set<OrderArch> orderArches) {
         this.orderArches = orderArches;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", cash=" + cash +
+                ", city=" + city +
+                ", role=" + role +
+                '}';
     }
 }
